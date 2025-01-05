@@ -21,6 +21,7 @@ import java.time.format.TextStyle
 import java.util.*
 import androidx.compose.ui.text.style.TextAlign.Companion.Center
 import com.example.daytracker.R
+
 @Composable
 @RequiresApi(Build.VERSION_CODES.O)
 fun CalendarView(){
