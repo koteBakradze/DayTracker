@@ -6,6 +6,7 @@ import androidx.annotation.RequiresApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicText
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -13,7 +14,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import java.time.YearMonth
@@ -65,15 +65,16 @@ fun DaysGrid(daysInMonth: Int, firstDayOfMonth: Int) {
     Log.i("TAG", "firstDayOfMonth: $firstDayOfMonth")
     Log.i("TAG", "rows: $rows")
 
-    Column(modifier = Modifier.fillMaxWidth()) {
+    Column(modifier = Modifier.fillMaxSize(1f)) {
         for (row in 0 until rows) {
-            Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
+            Row(modifier = Modifier.fillMaxWidth()) {
                 for (column in 0..6) {
                     val day = row * 7 + column - firstDayOfMonth + 1
                     if (day in 1..daysInMonth) {
                         Box(modifier = Modifier
                             .weight(1f)
-                            .border(1.dp, Color.Magenta, RectangleShape)
+                            .border(1.dp, Color.Magenta, shape = RoundedCornerShape(16.dp))
+                            .height(128.dp)
                         ){
                             Text(
                                 text = day.toString(),
